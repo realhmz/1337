@@ -23,6 +23,7 @@ SRCS =	ft_strlen.c\
 		ft_strrchr.c\
 		ft_memcmp.c\
 		ft_memmove.c\
+		ft_memcpy.c\
 
 OBJS = $(SRCS:%.c=%.o)
 
