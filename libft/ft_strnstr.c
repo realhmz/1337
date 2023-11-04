@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: het-taja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 02:33:01 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/03 02:33:03 by het-taja         ###   ########.fr       */
+/*   Created: 2023/11/03 16:05:05 by het-taja          #+#    #+#             */
+/*   Updated: 2023/11/03 16:05:07 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	if (dest > src)
-	{
-		while (n-- > 0)
-			((char *)dest)[n] = ((char *)src)[n];
-	}
-	else
-		ft_memcpy(dest, src, n);
-	return (dest);
+
+}
+
+#include <stdio.h>
+int main()
+{
+	char big[] = "helloa";
+	char little[] = "hellqa";
+	printf("%s",strnstr(big,little,6));
 }

@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: het-taja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 02:33:01 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/03 02:33:03 by het-taja         ###   ########.fr       */
+/*   Created: 2023/11/03 15:23:02 by het-taja          #+#    #+#             */
+/*   Updated: 2023/11/03 15:23:03 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	if (dest > src)
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	while (i < size)
 	{
-		while (n-- > 0)
-			((char *)dest)[n] = ((char *)src)[n];
+		dst[i] = src[i];
+		i++;
 	}
-	else
-		ft_memcpy(dest, src, n);
-	return (dest);
+	return (0);
+	
+}
+
+#include <stdio.h>
+int main()
+{
+	char dest[] = "helloo";
+	char *src = "wooooooorqd";
+	ft_strlcpy(dest,src,8);
+	printf("%s",dest);
 }
