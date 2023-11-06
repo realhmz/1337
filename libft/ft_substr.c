@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: het-taja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 16:14:05 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/03 16:14:06 by het-taja         ###   ########.fr       */
+/*   Created: 2023/11/05 14:20:38 by het-taja          #+#    #+#             */
+/*   Updated: 2023/11/05 14:20:39 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-	void	*arry;
-	if (nmemb == SIZE_MAX && size == SIZE_MAX)
-		return (NULL);
+    unsigned int	i;
+	size_t	h;
+	char	*str;
 	
-	if (!(arry = malloc(nmemb*size)))
-		return (NULL);
-	ft_bzero(arry,nmemb*size);
-	return (arry);
+	i = 0;
+	h = 0;
+	if (start == 0 || len == 0)
+		return (0);
+	while (s && s[i])
+	{
+		if (s[i] == (char)start)
+		{
+			if (!(str = (char *)malloc(len)))
+				return (0);
+			while (h < len)
+			{
+				str[h] = s[i];
+				i++;
+				h++;
+			}	
+		}
+		i++;
+	}
+	return (str);
 }
