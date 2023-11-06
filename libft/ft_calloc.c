@@ -15,6 +15,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*arry;
+
 	if (nmemb == SIZE_MAX && size == SIZE_MAX)
 		return (NULL);
 	
