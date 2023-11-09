@@ -32,7 +32,9 @@ SRCS =	ft_strlen.c\
 		ft_strlcat.c\
 		ft_memrchr.c\
 		ft_strnstr.c\
+		ft_strtrim.c\
 		ft_putchar_fd.c\
+		ft_split.c\
 
 OBJS = $(SRCS:%.c=%.o)
 
