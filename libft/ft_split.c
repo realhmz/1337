@@ -45,10 +45,8 @@ char    **ft_split(char const *str, char c)
                 i++;
             ret[k] = ft_substr((char *)str, j, i);
             k++;
-            //printf("k = %d\n", k);
         }
     }
-    //puts("here");
     ret[k] = 0;
     return (ret);
 }

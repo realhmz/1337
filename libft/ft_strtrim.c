@@ -14,48 +14,21 @@
 
 char    *ft_strtrim(char const *s1, char const *set)
 {
-	size_t	count;
-	char *str;
-	char *str1;
-	size_t	h;
+    size_t        start;
+    size_t        end;
+    size_t        i;
 
-	h = 0;
-	count = 0;
-	
-	while (s1 && s1[h])
-	{
-		if (s1[0] == set[0])
-		{
-		
-			while (s1[h] == set[count])
-			{	
-				h++;
-				count++;
-				if (count == ft_strlen(set))
-				{
-					str = ft_substr(s1,s1[h],(ft_strlen(s1) - h));
-				}
-			}
-		}
-		count = ft_strlen(set) - 1;
-		h = ft_strlen(str) - 1;
-		if (str[h] == set[count])
-		{
-		
-			while (str[h] == set[count])
-			{	
-				h--;
-				count--;
-				if (count == 0)
-				{
-					str1 = ft_substr(str,str[0],(ft_strlen(str) - ft_strlen(set)));
-					return (str1);
-					
-				}
-
-			}
-		}
-		h++;
-	}
-	return (0);
+    if (!s1)
+        return (0);
+    i = 0;
+    start = 0;
+    end = ft_strlen(s1) - 1;
+    while (s1[i] && ft_strchr(set, s1[i]))
+        start = (i++) + 1;
+    if (start >= ft_strlen(s1))
+        return ((char *)ft_calloc(sizeof(char), 1));
+    i = ft_strlen(s1) -1;
+    while (i && s1[i] && ft_strchr(set, s1[i]))
+        end = (i--) - 1;
+    return (ft_substr(s1, start, (end - start + 1)));
 }
