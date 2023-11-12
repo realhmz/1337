@@ -12,48 +12,62 @@
 
 #include "libft.h"
 
-/*
-char *ft_substr(char const *s, unsigned int start, size_t len)
+
+// char *ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	size_t	i;
+// 	size_t	count;
+// 	size_t	h;
+// 	char	*str;
+// 	char	*stt;
+
+// 	str = (char *)s;
+// 	i = 0;
+// 	h = 0;
+// 	while(str && str[count] && count <= len)
+// 	{
+// 		if (str[count] == (char)start)
+// 			count++;
+// 	}
+// 	h = count;
+// 	if (count == len)
+// 	{
+// 		stt = malloc(sizeof(char) * count + 1);
+// 		while (str && str[i] && i < count)
+// 		{
+// 			stt[i] = str[h];
+// 			i++;
+// 			h++;
+// 		}
+// 	}
+// 	return (stt);
+
+// }
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    unsigned int	i;
-	size_t	h;
-	char	*str;
-	
-	i = 0;
-	h = 0;
-	if (start == 0 || len == 0)
-		return (0);
-	while (s && s[i])
+	unsigned int	i;
+	unsigned int	s_len;
+	char			*substr;
+
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (s_len < start)
 	{
-		if (s[i] == (char)start)
-		{
-			if (!(str = (char *)malloc(len)))
-				return (0);
-			while (h < len)
-			{
-				str[h] = s[i];
-				i++;
-				h++;
-			}	
-		}
+		if (!(substr = malloc(sizeof(char) * 1)))
+			return (NULL);
+		substr[0] = '\0';
+		return (substr);
+	}
+	if (!(substr = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		substr[i] = s[start + i];
 		i++;
 	}
-	return (str);
-}
-*/
-
-char    *ft_substr(char const *s, unsigned int start, size_t len)
-{
-    int i = 0;
-    char *ret;
-
-    ret = (char *)malloc(sizeof(char) * (len - start) + 1);
-    while (start < len)
-    {
-        ret[i] = s[start];
-        i++;
-        start++;
-    }
-    ret[i] = 0;
-    return (ret);
+	substr[i] = '\0';
+	return (substr);
 }

@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    if (!lst)
-        return;
-    del(lst->content);
-    free(lst);
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
 }
 
 // void    del(void *content)
@@ -30,7 +30,7 @@ void ft_lstdelone(t_list *lst, void (*del)(void *))
 //     t_list *a;
 //     t_list  *head;
 //     t_list *b;
-    
+
 //     a = ft_lstnew(strdup("hello world"));
 //     b = ft_lstnew(strdup("salam l3alam"));
 //     a->next=b;

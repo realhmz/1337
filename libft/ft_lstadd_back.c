@@ -12,26 +12,26 @@
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    t_list *head;
+	t_list	*head;
 
-    head = *lst;
-    if (!head)
-    {
-        head = new;
-        return;
-    }
-    while (head)
-    {
-        if (head->next)
-           head = head->next;
-        else
-        {
-            head->next=new;
-            break;
-        }
-    }
+	head = *lst;
+	if (!head)
+	{
+		head = new;
+		return ;
+	}
+	while (head)
+	{
+		if (head->next)
+			head = head->next;
+		else
+		{
+			head->next = new;
+			break ;
+		}
+	}
 }
 
 // #include <stdio.h>

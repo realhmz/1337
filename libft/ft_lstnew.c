@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *head;
+	t_list	*head;
 
-	if(!(head = (t_list *)malloc(sizeof(t_list))))
+	if (!(head = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
-	head->content=content;
-	head->next=NULL;
+	head->content = content;
+	head->next = NULL;
 	return (head);
 }
 
@@ -45,5 +45,5 @@ t_list	*ft_lstnew(void *content)
 // 		ft_putendl_fd(head->content,1);
 // 		head = head->next;
 // 	}
-	
+
 // }
