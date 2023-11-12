@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: het-taja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 22:20:05 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/05 22:20:06 by het-taja         ###   ########.fr       */
+/*   Created: 2023/11/12 14:28:43 by het-taja          #+#    #+#             */
+/*   Updated: 2023/11/12 14:28:44 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+t_list *ft_lstlast(t_list *lst)
 {
-	size_t	i;
+    t_list  *head;
 
-	i = 0;
-	if (!c || !n)
-		return (0);
-		
-	while (((unsigned char *)s && ((unsigned char *)s)[i]) && i < n)
-	{
-		if (((unsigned char *)s)[i] == c)
-			return (&((unsigned char *)s)[i]);
-		i++;
-	}
-	return (0);
+    head = lst;
+    while (head)
+    {
+        if (head->next)
+           head = head->next;
+        else
+            return(head);      
+    }
+    return(NULL);   
 }

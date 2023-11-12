@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: het-taja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 22:20:05 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/05 22:20:06 by het-taja         ###   ########.fr       */
+/*   Created: 2023/11/12 14:16:28 by het-taja          #+#    #+#             */
+/*   Updated: 2023/11/12 14:16:29 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	if (!c || !n)
-		return (0);
-		
-	while (((unsigned char *)s && ((unsigned char *)s)[i]) && i < n)
-	{
-		if (((unsigned char *)s)[i] == c)
-			return (&((unsigned char *)s)[i]);
-		i++;
-	}
-	return (0);
+    new->next=*lst;
+    *lst = new;
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	t_list *a;
+// 	t_list *b;
+// 	t_list *head;
+// 	a = ft_lstnew("hamza");
+// 	b = ft_lstnew(" tarzan  ");
+// 	head = a;
+//     ft_lstadd_front(&head,b);
+// 	while (head)
+// 	{
+// 		ft_putendl_fd(head->content,1);
+// 		head = head->next;
+// 	}
+// }
