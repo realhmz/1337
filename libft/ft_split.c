@@ -1,57 +1,64 @@
+
 #include "libft.h"
+#include <stdio.h>
 
-void	skip_charset(char *str, char *charset, int *i)
+
+
+size_t	ft_word_count(char const *s, char c)
 {
-	while (str[*i] == charset[0])
-		*i = *i + 1;
-}
+	size_t	count;
 
-int	word_count(char *str, char *charset)
-{
-	int	i;
-	int	count;
-
-	i = 0;
+	if (!*s)
+		return (0);
 	count = 0;
-	while (str && str[i])
+	while (*s)
 	{
-		while (str[i] == charset[0])
-			i++;
-		if (str[i] != charset[0] && str[i])
-		{
+		while (*s == c)
+			s++;
+		if (*s)
 			count++;
-			while (str[i] != charset[0] && str[i])
-				i++;
-		}
+		while (*s != c && *s)
+			s++;
 	}
 	return (count);
 }
 
-char	**ft_split(char const *str, char c)
+char	**ft_split(char const *s, char c)
 {
+	char	**str;
+	size_t	word;
 	int		i;
-	int		j;
-	int		k;
-	int		count;
-	char	**ret;
 
+	str = (char **)malloc((ft_word_count(s, c) + 1) * sizeof(char *));
+	if (!s || !str)
+		return (0);
 	i = 0;
-	j = 0;
-	k = 0;
-	count = word_count((char *)str, &c);
-	ret = (char **)malloc(sizeof(char *) * (count + 1));
-	while (str[i])
+	while (*s)
 	{
-		skip_charset((char *)str, &c, &i);
-		if (str[i] != c && str[i])
+		while (*s == c && *s)
+			s++;
+		if (*s)
 		{
-			j = i;
-			while (str[i] != c && str[i])
-				i++;
-			ret[k] = ft_substr((char *)str, j, i);
-			k++;
+			if (!ft_strchr(s, c))
+				word = ft_strlen(s);
+			else
+				word = ft_strchr(s, c) - s;
+			str[i++] = ft_substr(s, 0, word);
+			s += word;
 		}
 	}
-	ret[k] = 0;
-	return (ret);
+	str[i] = NULL;
+	return (str);
 }
+
+// int main()
+// {
+// 	char str[] = "   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ";
+// 	char c = ' ';
+// 	char **arr;
+//     int i = -1;
+// 	arr = ft_split(str,c);
+//     while (arr[++i])
+//         printf("%s\n",arr[i]);
+// }
+

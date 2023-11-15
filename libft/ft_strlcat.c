@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t lnth;
@@ -34,3 +35,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[lnth] = '\0';
 	return (len);
 }
+// int main() 
+// {
+// 	char dest[] = "rrrrrrrrrrrrrrr";
+// 	ft_strlcat(dest, "lorem ipsum dolor sit amet", 5);
+// 	printf("%s\n",dest);
+// 	printf("%s\n",strncat(dest, "lorem ipsum dolor sit amet", 5));
+// 	printf("%ld",ft_strlcat(dest, "lorem ipsum dolor sit amet", 5));
+// }

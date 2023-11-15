@@ -12,62 +12,32 @@
 
 #include "libft.h"
 
-
-// char *ft_substr(char const *s, unsigned int start, size_t len)
-// {
-// 	size_t	i;
-// 	size_t	count;
-// 	size_t	h;
-// 	char	*str;
-// 	char	*stt;
-
-// 	str = (char *)s;
-// 	i = 0;
-// 	h = 0;
-// 	while(str && str[count] && count <= len)
-// 	{
-// 		if (str[count] == (char)start)
-// 			count++;
-// 	}
-// 	h = count;
-// 	if (count == len)
-// 	{
-// 		stt = malloc(sizeof(char) * count + 1);
-// 		while (str && str[i] && i < count)
-// 		{
-// 			stt[i] = str[h];
-// 			i++;
-// 			h++;
-// 		}
-// 	}
-// 	return (stt);
-
-// }
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
-	unsigned int	s_len;
-	char			*substr;
+    char        *str;
+    size_t        i;
 
-	if (!s)
-		return (NULL);
-	s_len = ft_strlen(s);
-	if (s_len < start)
-	{
-		if (!(substr = malloc(sizeof(char) * 1)))
-			return (NULL);
-		substr[0] = '\0';
-		return (substr);
-	}
-	if (!(substr = malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		substr[i] = s[start + i];
+    if (!s)
+    return (NULL);
+    if (start >= (unsigned int)ft_strlen((char *)s))
+    	return (ft_calloc(sizeof(char), 1));
+    if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+    	return (NULL);
+    i = 0;
+    while (i < len && s[start + i])
+    {
+		str[i] = s[start + i];
 		i++;
-	}
-	substr[i] = '\0';
-	return (substr);
+    }
+    str[i] = '\0';
+   	return (str);
 }
+
+// #include <stdio.h>
+
+// int main()
+// {
+//     char    *str = "tripouille";
+//     char    *ret = ft_substr(str,0, 42000);
+//         printf("%s. \n",ret);
+// }
