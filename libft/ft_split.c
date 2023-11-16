@@ -2,8 +2,6 @@
 #include "libft.h"
 #include <stdio.h>
 
-
-
 size_t	ft_word_count(char const *s, char c)
 {
 	size_t	count;
@@ -53,7 +51,8 @@ char	**ft_split(char const *s, char c)
 
 // int main()
 // {
-// 	char str[] = "   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ";
+// 	char str[] = "   lorem   ipsum dolor     sit amet,
+//		consectetur   adipiscing elit. Sed non risus. Suspendisse   ";
 // 	char c = ' ';
 // 	char **arr;
 //     int i = -1;
@@ -61,4 +60,3 @@ char	**ft_split(char const *s, char c)
 //     while (arr[++i])
 //         printf("%s\n",arr[i]);
 // }
-

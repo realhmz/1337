@@ -20,7 +20,7 @@ void	ft_bzero(void *s, size_t n)
 	a = s;
 	i = 0;
 	if (!s)
-		return;
+		return ;
 	while (i < n)
 	{
 		a[i] = 0;

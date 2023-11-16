@@ -53,8 +53,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (hay[i] != 0 && i < len)
 	{
 		count = 0;
-		while (hay[i + count] != '\0' && little[count] != '\0'
-				&& hay[i + count] == little[count] && i + count < len)
+		while (hay[i + count] != '\0' && little[count] != '\0' && hay[i
+			+ count] == little[count] && i + count < len)
 			count++;
 		if (count == n_len)
 			return (hay + i);

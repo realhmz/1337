@@ -42,11 +42,26 @@ SRCS =	ft_strlen.c\
 		ft_putnbr_fd.c\
 		ft_putendl_fd.c\
 		
+SRCSB = ft_lstadd_back.c\
+		ft_lstadd_front.c\
+		ft_lstclear.c\
+		ft_lstdelone.c\
+		ft_lstlast.c\
+		ft_lstnew.c\
+		ft_lstsize.c\
 
+
+
+OBJSB = $(SRCSB:%.c=%.o)
 
 OBJS = $(SRCS:%.c=%.o)
+%.o : %.c $(INC)
+		$(CC) -c $(CFLAGS) $< -o $@
 
 all : $(NAME)
+
+bonus : $(OBJSB) all
+		ar rc $(NAME) $(OBJSB) $(OBJS)
 
 $(NAME) : $(OBJS)
 		ar rc $(NAME) $(OBJS)
@@ -55,13 +70,11 @@ $(NAME) : $(OBJS)
 		$(CC) -c $(CFLAGS) $< -o $@
 
 clean :
-		rm -rf $(OBJS)
+		rm -rf $(OBJS) $(OBJSB)
 
 fclean : clean 
 		rm -rf $(NAME)
-
 re : fclean all
-
 
 
 .PHONY: all clean fclean re 
