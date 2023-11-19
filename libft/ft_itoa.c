@@ -11,11 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
 
-#include <stdlib.h>
 #include <stdio.h>
 
 static int    ft_count(int n)
@@ -41,9 +37,11 @@ char    *ft_itoa(int n)
     int        lenth;
     char    *str;
     long    nb;
-
     lenth = ft_count(n);
-    str = ft_calloc(lenth + 2, 1);
+    if (n == 0)
+        str = malloc(sizeof(char) * 2);
+    else
+        str = malloc((sizeof(char) * lenth) + 1);
     nb = n;
     if (!str)
         return (NULL);
@@ -59,7 +57,8 @@ char    *ft_itoa(int n)
         str[1] = '\0';
         return (str);
     }
-    lenth--;
+    str[lenth] = '\0';
+    lenth--;   
     while (nb)
     {
         str[lenth] = nb % 10 + 48;
@@ -75,8 +74,7 @@ char    *ft_itoa(int n)
 //     int    n;
 
 //     n = -2147483648;
-//     printf("%s\n", ft_itoa(0));
-//     pause();
+//     printf("%s\n", ft_itoa(1000034));
 //     return (0);
 // }
 /*
