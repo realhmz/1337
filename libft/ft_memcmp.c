@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: het-taja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:40:06 by het-taja          #+#    #+#             */
-/*   Updated: 2023/10/30 17:40:08 by het-taja         ###   ########.fr       */
+/*   Created: 2023/11/21 09:35:43 by het-taja          #+#    #+#             */
+/*   Updated: 2023/11/21 09:35:45 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)

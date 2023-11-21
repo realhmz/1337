@@ -12,69 +12,83 @@
 
 #include "libft.h"
 
-#include <stdio.h>
-
-static int    ft_count(int n)
+static	int	ft_count(int n)
 {
-    int    count;
+	int	count;
 
-    count = 0;
-    if (n < 0)
-    {
-        n = -n;
-        count++;
-    }
-    while (n)
-    {
-        count++;
-        n /= 10;
-    }
-    return (count);
+	count = 0;
+	if (n < 0)
+	{
+		n = -n;
+		count++;
+	}
+	while (n)
+	{
+		count++;
+		n /= 10;
+	}
+	return (count);
 }
 
-char    *ft_itoa(int n)
+static	char	*ft_isnegative(int n, int count)
 {
-    int        lenth;
-    char    *str;
-    long    nb;
-    lenth = ft_count(n);
-    if (n == 0)
-        str = malloc(sizeof(char) * 2);
-    else
-        str = malloc((sizeof(char) * lenth) + 1);
-    nb = n;
-    if (!str)
-        return (NULL);
-    else if (nb < 0)
-    {
-        str[0] = '-';
-        nb = -nb;
-    }
-    else if (nb == 0)
-    {
-        //free(str);
-        str[0] = '0';
-        str[1] = '\0';
-        return (str);
-    }
-    str[lenth] = '\0';
-    lenth--;   
-    while (nb)
-    {
-        str[lenth] = nb % 10 + 48;
-        nb = nb / 10;
-        lenth--;
-    }
-    return (str);
+	char	*str;
+	long	nb;
+
+	count = ft_count(n);
+	nb = (long)n * -1;
+	if (n == 0)
+	{
+		str = (char *)malloc((sizeof (char) * 2));
+		str[0] = '0';
+		str[1] = 0;
+		return (str);
+	}
+	str = (char *)malloc((sizeof (char) * count) + 1);
+	if (!str)
+		return (NULL);
+	str[0] = '-';
+	str[count] = '\0';
+	count--;
+	while (nb)
+	{
+		str[count] = nb % 10 + 48;
+		nb = nb / 10;
+		count--;
+	}
+	return (str);
 }
 
-// #include <unistd.h>
+char	*ft_itoa(int n)
+{
+	int		lenth;
+	char	*str;
+	long	nb;
+
+	lenth = ft_count(n);
+	if (n <= 0)
+		return (ft_isnegative(n, lenth));
+	str = malloc((sizeof(char) * lenth) + 1);
+	if (!str)
+		return (NULL);
+	nb = n;
+	str[lenth] = '\0';
+	lenth--;
+	while (nb)
+	{
+		str[lenth] = nb % 10 + 48;
+		nb = nb / 10;
+		lenth--;
+	}
+	return (str);
+}
+
 // int    main()
 // {
 //     int    n;
 
 //     n = -2147483648;
-//     printf("%s\n", ft_itoa(1000034));
+//     printf("%s\n", ft_itoa(2147483647));
 //     return (0);
 // }
 /*

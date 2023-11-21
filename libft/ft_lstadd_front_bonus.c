@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: het-taja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 20:41:45 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/20 20:41:47 by het-taja         ###   ########.fr       */
+/*   Created: 2023/11/12 14:16:28 by het-taja          #+#    #+#             */
+/*   Updated: 2023/11/12 14:16:29 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	if (!dest && !src)
-		return (0);
-	while (i < n)
-	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-		i++;
-	}
-	return (dest);
+	new->next = *lst;
+	*lst = new;
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	t_list *a;
+// 	t_list *b;
+// 	t_list *head;
+// 	a = ft_lstnew("hamza");
+// 	b = ft_lstnew(" tarzan  ");
+// 	head = a;
+//     ft_lstadd_front(&head,b);
+// 	while (head)
+// 	{
+// 		ft_putendl_fd(head->content,1);
+// 		head = head->next;
+// 	}
+// }

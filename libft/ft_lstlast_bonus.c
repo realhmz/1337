@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: het-taja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 20:41:45 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/20 20:41:47 by het-taja         ###   ########.fr       */
+/*   Created: 2023/11/12 14:28:43 by het-taja          #+#    #+#             */
+/*   Updated: 2023/11/12 14:28:44 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
+	t_list *head;
 
-	i = 0;
-	if (!dest && !src)
-		return (0);
-	while (i < n)
+	head = lst;
+	while (head)
 	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-		i++;
+		if (head->next)
+			head = head->next;
+		else
+			return (head);
 	}
-	return (dest);
+	return (NULL);
 }
