@@ -42,13 +42,13 @@ SRCS =	ft_strlen.c\
 		ft_putnbr_fd.c\
 		ft_putendl_fd.c\
 		
-SRCSB = ft_lstadd_back.c\
-		ft_lstadd_front.c\
-		ft_lstclear.c\
-		ft_lstdelone.c\
-		ft_lstlast.c\
-		ft_lstnew.c\
-		ft_lstsize.c\
+SRCSB = ft_lstadd_back_bonus.c\
+		ft_lstadd_front_bonus.c\
+		ft_lstclear_bonus.c\
+		ft_lstdelone_bonus.c\
+		ft_lstlast_bonus.c\
+		ft_lstnew_bonus.c\
+		ft_lstsize_bonus.c\
 
 
 
